@@ -1,0 +1,65 @@
+/* ========================================
+   REAL ESTATE DEMO — GLOBAL STYLES
+   ======================================== */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-background);
+  overflow-x: hidden;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: var(--color-surface);
+  background: var(--color-primary);
+}
+
+img {
+  height: auto;
+}
+
+.container {
+  width: min(
+    calc(100% - (var(--page-padding-mobile) * 2)),
+    var(--container-xl)
+  );
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-20);
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: min(
+      calc(100% - (var(--page-padding-desktop) * 2)),
+      var(--container-xl)
+    );
+  }
+
+  .section {
+    padding-block: var(--space-24);
+  }
+}
