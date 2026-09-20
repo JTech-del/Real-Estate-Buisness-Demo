@@ -1,6 +1,4 @@
-
-
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import properties from '../../data/properties.js';
 import './propertyDetails.css';
@@ -14,6 +12,95 @@ function PropertyDetails() {
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [lightboxImage, setLightboxImage] = useState(null);
+  const lightboxTriggerRef = useRef(null);
+
+  /*
+   * =========================================
+   * LIGHTBOX KEYBOARD ACCESSIBILITY
+   * =========================================
+   *
+   * The hook must run before the property
+   * not-found early return so React always
+   * calls hooks in the same order.
+   *
+   * Supported keyboard controls:
+   * - Escape     → close lightbox
+   * - ArrowLeft  → previous image
+   * - ArrowRight → next image
+   */
+
+  useEffect(() => {
+    if (!lightboxImage) {
+      return undefined;
+    }
+
+    const handleLightboxKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+
+        setLightboxImage(null);
+
+        requestAnimationFrame(() => {
+          lightboxTriggerRef.current?.focus();
+        });
+
+        return;
+      }
+
+      if (
+        event.key !== 'ArrowLeft' &&
+        event.key !== 'ArrowRight'
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+
+      setLightboxImage((currentImage) => {
+        if (
+          !currentImage ||
+          !currentImage.gallery?.length
+        ) {
+          return currentImage;
+        }
+
+        const totalImages = currentImage.gallery.length;
+
+        const nextIndex =
+          event.key === 'ArrowLeft'
+            ? currentImage.index === 0
+              ? totalImages - 1
+              : currentImage.index - 1
+            : currentImage.index === totalImages - 1
+              ? 0
+              : currentImage.index + 1;
+
+        return {
+          ...currentImage.gallery[nextIndex],
+          index: nextIndex,
+          gallery: currentImage.gallery,
+        };
+      });
+    };
+
+    document.addEventListener(
+      'keydown',
+      handleLightboxKeyDown,
+    );
+
+    return () => {
+      document.removeEventListener(
+        'keydown',
+        handleLightboxKeyDown,
+      );
+    };
+  }, [lightboxImage]);
+
+  /*
+   * =========================================
+   * PROPERTY NOT FOUND
+   * =========================================
+   */
 
   if (!property) {
     return (
@@ -177,16 +264,25 @@ function PropertyDetails() {
   const openLightbox = (imageIndex) => {
     const image = galleryImages[imageIndex];
 
-    if (!image) return;
+    if (!image) {
+      return;
+    }
+
+    lightboxTriggerRef.current = document.activeElement;
 
     setLightboxImage({
       ...image,
       index: imageIndex,
+      gallery: galleryImages,
     });
   };
 
   const closeLightbox = () => {
     setLightboxImage(null);
+
+    requestAnimationFrame(() => {
+      lightboxTriggerRef.current?.focus();
+    });
   };
 
   const showPreviousImage = () => {
@@ -202,6 +298,7 @@ function PropertyDetails() {
     setLightboxImage({
       ...galleryImages[previousIndex],
       index: previousIndex,
+      gallery: galleryImages,
     });
   };
 
@@ -218,6 +315,7 @@ function PropertyDetails() {
     setLightboxImage({
       ...galleryImages[nextIndex],
       index: nextIndex,
+      gallery: galleryImages,
     });
   };
 
@@ -498,7 +596,7 @@ function PropertyDetails() {
                                 </h3>
 
                                 <p>
-                                  Explore the{' '}
+                                  Explore{' '}
                                   {section.title.toLowerCase()}.
                                 </p>
                               </div>
@@ -550,6 +648,7 @@ function PropertyDetails() {
                                           <span aria-hidden="true">
                                             ↗
                                           </span>
+
                                         </span>
 
                                       </figure>

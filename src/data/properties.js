@@ -1,13 +1,4 @@
 import modernLekkiVilla from '../assets/images/properties/modern-lekki-villa.webp';
-import cityApartment from '../assets/images/properties/city-apartment.webp';
-import luxuryGardenResidence from '../assets/images/properties/luxury-garden-residence.webp';
-
-import apartmentImage from '../assets/images/properties/apartment.webp';
-import pexelsAhmetcotur from '../assets/images/properties/pexels-ahmetcotur-29702282.webp';
-import pexelsAlleksana10727 from '../assets/images/properties/pexels-alleksana-10610727.webp';
-import pexelsAlleksana10733 from '../assets/images/properties/pexels-alleksana-10610733.webp';
-import pexelsRealtorTurkiye from '../assets/images/properties/pexels-realtor-turkiye-575431660-16959792.webp';
-import pexelsVangelDimo from '../assets/images/properties/pexels-vangel-dimo-956042302-20129771.webp';
 
 /* ========================================
 PROPERTY 1
@@ -35,6 +26,48 @@ import property1Kitchen3 from '../assets/property1/property1 kichine/Kichine 3.w
 import property1LivingRoom1 from '../assets/property1/property1 livivng room/Living room 1.webp';
 import property1LivingRoom2 from '../assets/property1/property1 livivng room/Living room 2.webp';
 import property1LivingRoom3 from '../assets/property1/property1 livivng room/Living room 3.webp';
+
+import property2Bathroom from '../assets/property 2/bath room 2.webp';
+import property2Bedroom from '../assets/property 2/bedroom 2.webp';
+import property2Exterior from '../assets/property 2/Exterior 2.webp';
+import property2Kitchen from '../assets/property 2/Kichine 2.webp';
+import property2LivingRoom from '../assets/property 2/Living room 2.webp';
+
+import property3Bedroom from '../assets/property 3/bedroom 3.webp';
+import property3Bathroom from '../assets/property 3/bathroom 3.webp';
+import property3Exterior from '../assets/property 3/Exterior 3.webp';
+import property3Kitchen from '../assets/property 3/Kichine 3.webp';
+import property3LivingRoom from '../assets/property 3/Living room 3.webp';
+
+import property4Bathroom from '../assets/property 4/bathroom 4.webp';
+import property4Bedroom from '../assets/property 4/bedroom 4.webp';
+import property4Exterior from '../assets/property 4/Exterior 4.webp';
+import property4Kitchen from '../assets/property 4/Kichine 4.webp';
+import property4LivingRoom from '../assets/property 4/Living room 4.webp';
+
+import property5Bathroom from '../assets/property 5/bathroom 5.webp';
+import property5Bedroom from '../assets/property 5/bedroom 5.webp';
+import property5Exterior from '../assets/property 5/Exterior 5.webp';
+import property5Kitchen from '../assets/property 5/Kichine 5.webp';
+import property5LivingRoom from '../assets/property 5/Living room 5.webp';
+
+import property6Bathroom from '../assets/property 6/bathroom 6.webp';
+import property6Bedroom from '../assets/property 6/bedroom 6.webp';
+import property6Exterior from '../assets/property 6/Exterior 6.webp';
+import property6Kitchen from '../assets/property 6/Kichine 6.webp';
+import property6LivingRoom from '../assets/property 6/Living room 6.webp';
+
+import property7Bathroom from '../assets/property 7/bathroom 7.webp';
+import property7Bedroom from '../assets/property 7/bedroom 7.webp';
+import property7Exterior from '../assets/property 7/Exterior 7.webp';
+import property7Kitchen from '../assets/property 7/Kichine 7.webp';
+import property7LivingRoom from '../assets/property 7/Living room 7.webp';
+
+import property8Bathroom from '../assets/property 8/bathroom 8.webp';
+import property8Bedroom from '../assets/property 8/bedroom 8.webp';
+import property8Exterior from '../assets/property 8/Exterior 8.webp';
+import property8Kitchen from '../assets/property 8/Kichine 8.webp';
+import property8LivingRoom from '../assets/property 8/Living room 8.webp';
 
 const properties = [
 /* ========================================
@@ -121,7 +154,7 @@ price: '₦8,500,000 / year',
 bedrooms: 3,
 bathrooms: 3,
 area: '210 m²',
-image: cityApartment,
+image: property2Exterior,
 
 
 description:
@@ -137,15 +170,12 @@ features: [
 ],
 
 gallery: {
-  exterior: [cityApartment],
-  livingRoom: [pexelsAhmetcotur],
-  kitchen: [pexelsAlleksana10727],
-  bedrooms: [pexelsAlleksana10733],
-  bathrooms: [apartmentImage],
-  additional: [
-    pexelsRealtorTurkiye,
-    pexelsVangelDimo,
-  ],
+  exterior: [property2Exterior],
+  livingRoom: [property2LivingRoom],
+  kitchen: [property2Kitchen],
+  bedrooms: [property2Bedroom],
+  bathrooms: [property2Bathroom],
+  additional: [],
 },
 
 
@@ -166,7 +196,7 @@ price: '₦180,000,000',
 bedrooms: 5,
 bathrooms: 5,
 area: '560 m²',
-image: luxuryGardenResidence,
+image: property3Exterior,
 
 
 description:
@@ -183,18 +213,12 @@ features: [
 ],
 
 gallery: {
-  exterior: [
-    luxuryGardenResidence,
-    modernLekkiVilla,
-  ],
-  livingRoom: [pexelsAhmetcotur],
-  kitchen: [pexelsAlleksana10727],
-  bedrooms: [pexelsAlleksana10733],
-  bathrooms: [apartmentImage],
-  additional: [
-    pexelsRealtorTurkiye,
-    pexelsVangelDimo,
-  ],
+  exterior: [property3Exterior],
+  livingRoom: [property3LivingRoom],
+  kitchen: [property3Kitchen],
+  bedrooms: [property3Bedroom],
+  bathrooms: [property3Bathroom],
+  additional: [],
 },
 
 
@@ -215,7 +239,7 @@ price: '₦145,000,000',
 bedrooms: 4,
 bathrooms: 4,
 area: '390 m²',
-image: pexelsRealtorTurkiye,
+image: property4Exterior,
 
 
 description:
@@ -231,11 +255,11 @@ features: [
 ],
 
 gallery: {
-  exterior: [pexelsRealtorTurkiye],
-  livingRoom: [pexelsAhmetcotur],
-  kitchen: [pexelsAlleksana10727],
-  bedrooms: [pexelsAlleksana10733],
-  bathrooms: [apartmentImage],
+  exterior: [property4Exterior],
+  livingRoom: [property4LivingRoom],
+  kitchen: [property4Kitchen],
+  bedrooms: [property4Bedroom],
+  bathrooms: [property4Bathroom],
   additional: [],
 },
 
@@ -257,7 +281,7 @@ price: '₦98,000,000',
 bedrooms: 4,
 bathrooms: 4,
 area: '350 m²',
-image: apartmentImage,
+image: property5Exterior,
 
 
 description:
@@ -273,11 +297,11 @@ features: [
 ],
 
 gallery: {
-  exterior: [apartmentImage],
-  livingRoom: [pexelsAhmetcotur],
-  kitchen: [pexelsAlleksana10727],
-  bedrooms: [pexelsAlleksana10733],
-  bathrooms: [pexelsRealtorTurkiye],
+  exterior: [property5Exterior],
+  livingRoom: [property5LivingRoom],
+  kitchen: [property5Kitchen],
+  bedrooms: [property5Bedroom],
+  bathrooms: [property5Bathroom],
   additional: [],
 },
 
@@ -299,7 +323,7 @@ price: '₦250,000,000',
 bedrooms: 5,
 bathrooms: 5,
 area: '610 m²',
-image: pexelsVangelDimo,
+image: property6Exterior,
 
 
 description:
@@ -315,11 +339,11 @@ features: [
 ],
 
 gallery: {
-  exterior: [pexelsVangelDimo],
-  livingRoom: [pexelsAhmetcotur],
-  kitchen: [pexelsAlleksana10727],
-  bedrooms: [pexelsAlleksana10733],
-  bathrooms: [apartmentImage],
+  exterior: [property6Exterior],
+  livingRoom: [property6LivingRoom],
+  kitchen: [property6Kitchen],
+  bedrooms: [property6Bedroom],
+  bathrooms: [property6Bathroom],
   additional: [],
 },
 
@@ -341,7 +365,7 @@ price: '₦85,000,000',
 bedrooms: 4,
 bathrooms: 4,
 area: '380 m²',
-image: modernLekkiVilla,
+image: property7Exterior,
 
 
 description:
@@ -357,11 +381,11 @@ features: [
 ],
 
 gallery: {
-  exterior: [modernLekkiVilla],
-  livingRoom: [pexelsAhmetcotur],
-  kitchen: [pexelsAlleksana10727],
-  bedrooms: [pexelsAlleksana10733],
-  bathrooms: [apartmentImage],
+  exterior: [property7Exterior],
+  livingRoom: [property7LivingRoom],
+  kitchen: [property7Kitchen],
+  bedrooms: [property7Bedroom],
+  bathrooms: [property7Bathroom],
   additional: [],
 },
 
@@ -383,7 +407,7 @@ price: '₦12,000,000 / year',
 bedrooms: 3,
 bathrooms: 3,
 area: '240 m²',
-image: cityApartment,
+image: property8Exterior,
 
 
 description:
@@ -399,11 +423,11 @@ features: [
 ],
 
 gallery: {
-  exterior: [cityApartment],
-  livingRoom: [pexelsAhmetcotur],
-  kitchen: [pexelsAlleksana10727],
-  bedrooms: [pexelsAlleksana10733],
-  bathrooms: [apartmentImage],
+  exterior: [property8Exterior],
+  livingRoom: [property8LivingRoom],
+  kitchen: [property8Kitchen],
+  bedrooms: [property8Bedroom],
+  bathrooms: [property8Bathroom],
   additional: [],
 },
 

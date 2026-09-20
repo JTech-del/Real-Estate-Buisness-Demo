@@ -1,21 +1,59 @@
-
 import { useEffect, useState } from 'react';
 import './themeToggle.css';
 
+const THEME_STORAGE_KEY = 'real-estate-theme';
+
+function getStoredTheme() {
+  return localStorage.getItem(THEME_STORAGE_KEY) === 'dark'
+    ? 'dark'
+    : 'light';
+}
+
 function ThemeToggle() {
   const [isDark, setIsDark] = useState(() => {
-    return localStorage.getItem('real-estate-theme') === 'dark';
+    return getStoredTheme() === 'dark';
   });
 
   useEffect(() => {
-    const theme = isDark ? 'dark' : 'light';
+    const handleThemeChange = (event) => {
+      if (event.key === THEME_STORAGE_KEY) {
+        setIsDark(event.newValue === 'dark');
+      }
+    };
 
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('real-estate-theme', theme);
-  }, [isDark]);
+    window.addEventListener('storage', handleThemeChange);
+
+    return () => {
+      window.removeEventListener('storage', handleThemeChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleThemeChange = () => {
+      setIsDark(getStoredTheme() === 'dark');
+    };
+
+    window.addEventListener('real-estate-theme-change', handleThemeChange);
+
+    return () => {
+      window.removeEventListener(
+        'real-estate-theme-change',
+        handleThemeChange,
+      );
+    };
+  }, []);
 
   const toggleTheme = () => {
-    setIsDark((previous) => !previous);
+    const nextTheme = isDark ? 'light' : 'dark';
+
+    document.documentElement.setAttribute('data-theme', nextTheme);
+    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+
+    window.dispatchEvent(
+      new CustomEvent('real-estate-theme-change', {
+        detail: { theme: nextTheme },
+      }),
+    );
   };
 
   return (
@@ -45,4 +83,3 @@ function ThemeToggle() {
 }
 
 export default ThemeToggle;
-
