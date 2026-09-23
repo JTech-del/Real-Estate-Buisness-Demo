@@ -396,12 +396,31 @@
 .form-field textarea::placeholder {
   color: var(--contact-muted);
   opacity: 0.75;
+ 
+
 }
+
+
 
 .form-field select {
   cursor: pointer;
+
+  color-scheme: light;
 }
 
+.form-field select option {
+  background: var(--contact-white);
+  color: var(--contact-text);
+}
+
+[data-theme='dark'] .form-field select {
+  color-scheme: dark;
+}
+
+[data-theme='dark'] .form-field select option {
+  background: #181816;
+  color: #f2f0eb;
+}
 .form-field textarea {
   min-height: 150px;
 
